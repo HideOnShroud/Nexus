@@ -109,3 +109,7 @@ The application uses [Winston](https://github.com/winstonjs/winston) for logging
 
 - `logs/error.log` for error logs
 - `logs/combined.log` for general logs
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
