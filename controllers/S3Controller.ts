@@ -39,6 +39,7 @@ class S3Controller {
         }
     }
 
+    // Get all files
     async getAllFiles(req: Request, res: Response): Promise<void> {
         try {
             const files = await this.s3Service.getAllFiles()
@@ -48,6 +49,7 @@ class S3Controller {
             res.status(500).send({ error: 'Could not retrieve files' })
         }
     }
+
 
     // Delete file
     async delete(req: Request, res: Response): Promise<void> {

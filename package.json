@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "rimraf dist && npx tsc",
     "prestart": "npm run build",
     "start": "node dist/index.js",
@@ -15,14 +15,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.667.0",
     "@types/aws-sdk": "^2.7.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.13",
     "@types/multer": "^1.4.12",
+    "aws-sdk-client-mock": "^4.0.2",
+    "aws-sdk-client-mock-jest": "^4.0.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.666.0",
     "@aws-sdk/client-s3": "^3.666.0",
     "@aws-sdk/lib-dynamodb": "^3.666.0",
     "@aws-sdk/s3-request-presigner": "^3.666.0",
@@ -33,6 +38,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "multer": "^1.4.5-lts.1",
+    "uuidv4": "^6.2.13",
     "winston": "^3.15.0"
   }
 }

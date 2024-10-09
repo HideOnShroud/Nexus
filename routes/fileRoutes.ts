@@ -20,15 +20,13 @@ fileRouter.get('/', (req, res) => {
 })
 
 // Read an item
-
-fileRouter.get('/:id', (req, res) => {
+fileRouter.get('/:key', (req, res) => {
     s3Controller.getFileUrl(req, res)
 })
 
 
 // Delete an item
-
-fileRouter.delete('/:id', (req, res) => {
+fileRouter.delete('/:key', (req, res) => {
     s3Controller.delete(req, res)
 })
 

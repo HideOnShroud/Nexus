@@ -19,19 +19,16 @@ itemRouter.get('/', (req, res) => {
 })
 
 // Read an item
-
 itemRouter.get('/:id', (req, res) => {
     itemController.read(req, res)
 })
 
 // Update an item
-
 itemRouter.put('/:id', (req, res) => {
     itemController.update(req, res)
 })
 
 // Delete an item
-
 itemRouter.delete('/:id', (req, res) => {
     itemController.delete(req, res)
 })

@@ -10,6 +10,7 @@ class ItemController {
         this.dynamoDBService = new DynamoDBService(tableName)
     }
 
+    // Create an item
     async create(req: Request, res: Response) {
         const item: Item = req.body
 
@@ -22,6 +23,7 @@ class ItemController {
         }
     }
 
+    // Get all items
     async readAll(req: Request, res: Response): Promise<void> {
         try {
             const items = await this.dynamoDBService.getAllItems()
@@ -32,6 +34,7 @@ class ItemController {
         }
     }
 
+    // Get an item
     async read(req: Request, res: Response): Promise<void> {
         const { id } = req.params
 
@@ -47,6 +50,7 @@ class ItemController {
         }
     }
 
+    // Update an item
     async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params
         const updatedItem: Partial<Item> = req.body
@@ -63,6 +67,7 @@ class ItemController {
         }
     }
 
+    // Delete an item
     async delete(req: Request, res: Response) {
         const { id } = req.params
 

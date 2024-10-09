@@ -1,9 +1,6 @@
 import winston from 'winston'
 import path from 'path'
 
-// Create a logs directory if it doesn't exist (optional)
-// You might want to manage this separately or via a build step.
-
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
