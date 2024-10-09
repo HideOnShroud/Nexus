@@ -72,13 +72,42 @@ This application provides a set of CRUD operations for managing files in AWS S3 
    The server will be running at `http://localhost:3000` (or the port you specified).
 
 2. **API Endpoints**:
+   # IMPORTANT NOTICE!
+   **Please Read this section carefully. Since it addresses some of the things that I couldn't understand. I can update the Code if you'd like.**
+   ### S3 Endpoints (File Operations)
 
-   - **Upload a file to S3 and create a record in DynamoDB**: `POST /files/upload`
-   - **Get a file from S3**: `GET /files/:key`
-   - **Update a file in S3 and update the record in DynamoDB**: `PUT /files/update/:key`
-   - **Delete a file from S3 and delete the record from DynamoDB**: `DELETE /files/:key`
+   - **Upload a file to S3**: `POST /files/`  
+     Upload a file to S3. You need to provide the file in the request body (multipart/form-data).
+         **Aditionally Uploading a File Creates A New Entery in DynamoDB**
+  
+   - **Get the list of all files in S3**: `GET /files/`  
+     Retrieves a list of all files stored in the S3 bucket.
+  
+   - **Get a file URL from S3**: `GET /files/:key`  
+     Retrieves the URL of a file stored in S3 by providing the file's key in the URL.
+  
+   - **Delete a file from S3**: `DELETE /files/:key`  
+     Deletes a file from the S3 bucket by providing the file's key in the URL.
 
-   Replace `:key` with the filename or key of the file in S3.
+     **Aditionally Deleting a File Deletes The File Entery in DynamoDB**
+
+   ### DynamoDB Endpoints (Item Operations)
+
+   - **Create a record in DynamoDB**: `POST /items/`  
+     Creates a new record in DynamoDB with the provided data in the request body (JSON format). I don't know if I Should keep this or not.
+  
+   - **Get the list of all records from DynamoDB**: `GET /items/`  
+     Retrieves a list of all items (records) stored in the DynamoDB table.
+  
+   - **Get a record from DynamoDB by ID**: `GET /items/:id`  
+     Retrieves a specific record from DynamoDB by providing the item's ID in the URL.
+  
+   - **Update a record in DynamoDB by ID**: `PUT /items/:id`  
+     Updates an existing record in DynamoDB by providing the item's ID in the URL and the updated data in the request body.
+  
+   - **Delete a record from DynamoDB by ID**: `DELETE /items/:id`  
+     Deletes a record from DynamoDB by providing the item's ID in the URL.
+     I don't know if I Should keep this or not. Also I don't know if deleting a record from DynamoDB should result in file removal from S3.
 
 ## Environment Variables
 
